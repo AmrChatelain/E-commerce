@@ -1,4 +1,4 @@
-# 🤵👗 A.C — Fashion E-Commerce (React)
+# 🤵👗 AC Black Diamond E-Commerce 
 
 A modern, React-powered e-commerce platform crafted for contemporary fashion retail.  
 Built with a refined interface, smooth transitions, and a cohesive visual system that puts product quality at the forefront.
@@ -16,15 +16,23 @@ Built with a refined interface, smooth transitions, and a cohesive visual system
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ **Tech Stack**
 
-- **React + Vite**  
-- **Styled Components / TailwindCSS**  
-- **React Router**  
-- **Context API**
+### **Frontend**
+- ⚛️ React (Vite)
+- 🎨 TailwindCSS
+- 🧭 React Router
+- 🗂️ Context API (global state)
+- 🔗 REST API integration for products & media
+
+### **Backend**
+- 🌐 Express JS
+- 🗃️ JSON-Server 
+- 📁 Static file serving (`/uploads`)
+- 🔒 CORS enabled for smooth development
 
 ---
 
 ### 📌 Roadmap
 
-This project will expand into a full-stack application in future updates.
+This project will expand More in future updates.
