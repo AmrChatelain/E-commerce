@@ -1,5 +1,5 @@
 import React from 'react'
-import {Routes, Route, Router} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import About from './pages/About'
@@ -14,18 +14,18 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+   <div className='page-container px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
      <Navbar />
     <Routes>
        <Route path='/' element={<Home />} />
-       <Route path='/Collection' element={<Collection />} />
-       <Route path='/About' element = {<About />} />
-       <Route path='/Contact' element={<Contact/>} />
-       <Route path='/Product/:productId' element= {<Product/>} />
-       <Route path='/Cart' element={<Cart />} />
-       <Route path='/Login' element= {<Login />} />
-       <Route path='PlaceOrder' element= {<PlaceOrder />} />
-       <Route path='Orders' element= {<Orders />} />
+       <Route path='/collection' element={<Collection />} />
+       <Route path='/about' element = {<About />} />
+       <Route path='/contact' element={<Contact/>} />
+       <Route path='/product/:productId' element= {<Product/>} />
+       <Route path='/cart' element={<Cart />} />
+       <Route path='/login' element= {<Login />} />
+       <Route path='placeOrder' element= {<PlaceOrder />} />
+       <Route path='orders' element= {<Orders />} />
 
 
     </Routes>

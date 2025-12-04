@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {API} from '../config'
+import API from '../config'
 import { Link, NavLink } from 'react-router-dom'
 
 function Navbar() {
@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <div className='flex items-center justify-between py-5 font-bold'>
-       <img src={`${API}/uploads/logo.png`} className="w-36" />
+       <Link to='/'> <img src={`${API}/uploads/logo.png`} className="w-36" /> </Link>
 
        <ul className='hidden sm:flex items-center gap-6 text-lg text-gray-700 uppercase tracking-wide'>
         <NavLink to='/' className='flex flex-col items-center gap-1 transition-colors duration-200 hover:text-black' >

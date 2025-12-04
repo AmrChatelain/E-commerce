@@ -1,7 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
 
+* {
+  font-family: Outfit;
+}
+
+body {
+  background: linear-gradient(to bottom, #faf8f3 0%, #f0ebe5 100%);
+  min-height: 100vh;
+}
+
+/* Page-wide fade-in animation */
+.page-container {
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lora {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a.active hr {
+  display: block;
+}
+
+.hero-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.hero-text {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  z-index: 1;
+}
+
+.hero-main {
+  perspective: 1200px;
+  overflow: hidden;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  z-index: 1;
+}
+
+.hero-main img {
+  width: 100%;
+  transition: transform 0.5s ease, filter 0.4s ease;
+  transform-origin: center;
+}
+
+.hero-main:hover img {
+  transform: scale(1.06) rotateY(6deg);
+  filter: brightness(1.1) drop-shadow(0 15px 20px rgba(0,0,0,0.25));
+}
+
+/* Hero title text swap */
+.hero-title {
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.hero-title::before {
+  content: attr(data-hover-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  color: #414141;
+}
 
 
-a.active hr{
-display: block;
+@media (min-width: 640px) {
+
+  /* Text change on hover */
+  .hero-container:hover .hero-title {
+    color: transparent;
+  }
+
+  .hero-container:hover .hero-title::before {
+    opacity: 1;
+  }
+
+  /* Line glow effect */
+  .hero-container:hover .hero-text .bg-\[\#414141\] {
+    box-shadow: 0 0 8px rgba(65, 65, 65, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Swap positions on hover */
+  .hero-container:hover .hero-text {
+    transform: translateX(100%);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  }
+  
+  .hero-container:hover .hero-main {
+    transform: translateX(-100%);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 639px) {
+  a.active {
+    background-color: black;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
 }
