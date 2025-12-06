@@ -7,8 +7,12 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
   const [products, setProducts] = useState([]);
 
-  const currency = '$';
+  const currency = '€';
   const delivery_fee = 15;
+
+  const [search,setSearch]= useState('');
+  const [showSearch,setShowSearch]= useState(false)
+
   const fetchProducts = async () => {
     try {
       const res = await axios.get(`${API}/products`);
@@ -27,7 +31,8 @@ const ShopContextProvider = (props) => {
     products,
     currency,
     delivery_fee,
-    API,           // use this for image URLs
+    API,
+    search,setSearch,showSearch,setShowSearch,          // use this for image URLs
     fetchProducts // optional, if you want to refresh products manually
 };
 

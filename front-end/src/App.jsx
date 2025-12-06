@@ -10,12 +10,15 @@ import Login from './pages/Login'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
+import SearchTool from './components/SearchTool'
+import AdminPage from './components/AdminPage'
 
 
 function App() {
   return (
    <div className='page-container px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
      <Navbar />
+     <SearchTool />
     <Routes>
        <Route path='/' element={<Home />} />
        <Route path='/collection' element={<Collection />} />
@@ -26,6 +29,7 @@ function App() {
        <Route path='/login' element= {<Login />} />
        <Route path='placeOrder' element= {<PlaceOrder />} />
        <Route path='orders' element= {<Orders />} />
+       <Route path="/admin/products" element={<AdminPage />} />
 
 
     </Routes>
