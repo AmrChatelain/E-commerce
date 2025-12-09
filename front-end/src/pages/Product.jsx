@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 import API from '../config';
+import RelatedProducts from '../components/RelatedProducts';
 
 function Product() {
 
   const {productId} = useParams();
-  const {products} = useContext(ShopContext); // FIXED: Changed Products to products (lowercase)
-  const [productData, setProductData] = useState(null); // FIXED: Changed false to null
+  const {products} = useContext(ShopContext);
+  const [productData, setProductData] = useState(null); 
   const [image, setImage] = useState('');
   const [size, setSize] = useState('');
 
@@ -109,7 +110,9 @@ function Product() {
         </div>
         <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
           <p>{productData.description}</p>
+         
         </div>
+         <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
       </div>
 
     </div>
