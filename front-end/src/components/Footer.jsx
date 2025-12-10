@@ -6,7 +6,7 @@ function Footer() {
     <div>
     <hr />
         <div>
-            <p className='py-5 text-center text-sm'>© 2025 AC. All rights reserved.</p>
+            <p className='py-5 text-center text-sm'>© 2025 A.C. | Crafted & Owned by Amr Chatelain. All Rights Reserved.</p>
 
         </div>
        

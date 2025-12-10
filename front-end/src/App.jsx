@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, Form} from 'react-router-dom'
 import Home from './pages/Home'
 import Collection from './pages/Collection'
 import About from './pages/About'
@@ -12,11 +12,14 @@ import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import SearchTool from './components/SearchTool'
 import AdminPage from './components/AdminPage'
+import Footer from './components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function App() {
   return (
    <div className='page-container px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <ToastContainer />
      <Navbar />
      <SearchTool />
     <Routes>
@@ -27,13 +30,13 @@ function App() {
        <Route path='/product/:productId' element= {<Product/>} />
        <Route path='/cart' element={<Cart />} />
        <Route path='/login' element= {<Login />} />
-       <Route path='placeOrder' element= {<PlaceOrder />} />
+       <Route path='place-order' element= {<PlaceOrder />} />
        <Route path='orders' element= {<Orders />} />
        <Route path="/admin/products" element={<AdminPage />} />
 
 
     </Routes>
-
+   <Footer />
     </div>
   )
 }

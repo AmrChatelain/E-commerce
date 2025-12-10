@@ -15,7 +15,7 @@
     "menu_icon": "/uploads/menu_icon.png",
     "about_img": "/uploads/about_img.png",
     "contact_img": "/uploads/contact_img.png",
-    "razorpay_logo": "/uploads/razorpay_logo.png",
+    "Amex_logo": "/uploads/amex-logo.png",
     "stripe_logo": "/uploads/stripe_logo.png",
     "cross_icon": "/uploads/cross_icon.png"
   },
@@ -332,7 +332,7 @@
   "image": ["/uploads/p_img25.jpg"],
   "category": "Kids",
   "subCategory": "Sets",
-  "sizes": ["S", "M", "L", "XL"],
+  "sizes": ["S", "M", "L"],
   "date": 1716638745448,
   "bestSeller": true
 
