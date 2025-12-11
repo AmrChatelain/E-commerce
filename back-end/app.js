@@ -3,7 +3,7 @@ const jsonServer = require("json-server");
 const morgan = require("morgan");
 const path = require("path");
 
-const PORT = process.env.PORT || https://e-commerce-09wy.onrender.com;
+const PORT = process.env.PORT || 5005;
 const server = express();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
@@ -21,21 +21,18 @@ server.use((req, res, next) => {
 // Serve images
 server.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 
-// ----------------------------
-// Root route must be before JSON Server
-// ----------------------------
+// Root route
 server.get("/", (req, res) => {
-  res.send(
-    "<h1>Backend is running!</h1><p>Visit <a href='/products'>/products</a> to see products JSON.</p>"
-  );
+  res.send(`
+    <h1>Backend is running!</h1>
+    <p>Visit <a href='/products'>/products</a> to see the products JSON.</p>
+  `);
 });
 
-// JSON Server API
+// JSON Server routes
 server.use(router);
 
 // Start server
 server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  console.log(`Images available at http://localhost:${PORT}/uploads/...`);
-  console.log(`API available at http://localhost:${PORT}/products`);
+  console.log(`Server running on port ${PORT}`);
 });
