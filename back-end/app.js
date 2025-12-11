@@ -3,7 +3,7 @@ const jsonServer = require("json-server");
 const morgan = require("morgan");
 const path = require("path");
 
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || https://e-commerce-09wy.onrender.com;
 const server = express();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();

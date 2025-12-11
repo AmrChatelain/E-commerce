@@ -49,7 +49,7 @@ function PlaceOrder() {
 
             <div onClick={()=>setMethod('amex')} className="flex items-center gap-3 border p-3 cursor-pointer w-full">
              <p className={`w-4 h-4 border rounded-full ${method === 'amex' ? 'bg-green-500' : ''}`}></p>
-            <img src={`${API}/uploads/Amex-logo.png`} className="h-6 object-contain" />
+            <img src={`${API}/uploads/amex-logo.png`} className="h-6 object-contain" />
             </div>
 
              <div onClick={()=>setMethod('cod')} className="flex items-center gap-3 border p-3 cursor-pointer w-full">

@@ -1,2 +1,2 @@
-const API = import.meta.env.VITE_API_URL || "http://localhost:5005";
+const API = "https://e-commerce-09wy.onrender.com";
 export default API;
