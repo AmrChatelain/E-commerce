@@ -104,7 +104,7 @@ function AdminPage() {
                   <td className='border border-gray-300 px-4 py-2'>{product.category}</td>
                   <td className='border border-gray-300 px-4 py-2'>{product.subCategory}</td>
                   <td className='border border-gray-300 px-4 py-2'>
-                    {product.bestseller ? '✅' : '❌'} {/* FIXED: Changed bestSeller to bestseller */}
+                    {product.bestSeller ? '✅' : '❌'}
                   </td>
                   <td className='border border-gray-300 px-4 py-2'>
                     <div className='flex gap-2 justify-center'>
