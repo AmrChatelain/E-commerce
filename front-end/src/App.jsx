@@ -13,7 +13,7 @@ import Navbar from './components/Navbar'
 import SearchTool from './components/SearchTool'
 import AdminPage from './components/AdminPage'
 import Footer from './components/Footer'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
