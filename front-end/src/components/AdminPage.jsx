@@ -14,12 +14,19 @@ function AdminPage() {
     
     if (confirmDelete) {
       try {
-        await axios.delete(`${API}/products/${productId}`)
+        console.log('Deleting:', productId)
+        console.log('URL:', `${API}/products/${productId}`)
+        
+        const response = await axios.delete(`${API}/products/${productId}`)
+        console.log('Delete response:', response)
+        
         alert('Product deleted successfully!')
-        fetchProducts() // Refresh the product list
+        fetchProducts()
       } catch (error) {
-        console.error('Error deleting product:', error)
-        alert('Failed to delete product')
+        console.error('Delete error:', error)
+        console.error('Error response:', error.response?.data)
+        console.error('Error status:', error.response?.status)
+        alert(`Failed to delete: ${error.response?.data || error.message}`)
       }
     }
   }
@@ -35,14 +42,22 @@ function AdminPage() {
     e.preventDefault()
     
     try {
-      await axios.put(`${API}/products/${editingProduct._id}`, editingProduct)
+      console.log('Updating:', editingProduct._id)
+      console.log('URL:', `${API}/products/${editingProduct._id}`)
+      console.log('Data:', editingProduct)
+      
+      const response = await axios.put(`${API}/products/${editingProduct._id}`, editingProduct)
+      console.log('Update response:', response)
+      
       alert('Product updated successfully!')
       setShowEditModal(false)
       setEditingProduct(null)
-      fetchProducts() // Refresh the product list
+      fetchProducts()
     } catch (error) {
-      console.error('Error updating product:', error)
-      alert('Failed to update product')
+      console.error('Update error:', error)
+      console.error('Error response:', error.response?.data)
+      console.error('Error status:', error.response?.status)
+      alert(`Failed to update: ${error.response?.data || error.message}`)
     }
   }
 
@@ -89,7 +104,7 @@ function AdminPage() {
                   <td className='border border-gray-300 px-4 py-2'>{product.category}</td>
                   <td className='border border-gray-300 px-4 py-2'>{product.subCategory}</td>
                   <td className='border border-gray-300 px-4 py-2'>
-                    {product.bestSeller ? '✅' : '❌'}
+                    {product.bestseller ? '✅' : '❌'} {/* FIXED: Changed bestSeller to bestseller */}
                   </td>
                   <td className='border border-gray-300 px-4 py-2'>
                     <div className='flex gap-2 justify-center'>
@@ -133,7 +148,7 @@ function AdminPage() {
                 <input
                   type='text'
                   name='name'
-                  value={editingProduct.name}
+                  value={editingProduct.name || ''}
                   onChange={handleInputChange}
                   className='w-full border border-gray-300 rounded px-3 py-2'
                   required
@@ -142,11 +157,11 @@ function AdminPage() {
 
               {/* Price */}
               <div className='mb-4'>
-                <label className='block text-sm font-medium mb-2'>Price ($)</label>
+                <label className='block text-sm font-medium mb-2'>Price (€)</label>
                 <input
                   type='number'
                   name='price'
-                  value={editingProduct.price}
+                  value={editingProduct.price || ''}
                   onChange={handleInputChange}
                   className='w-full border border-gray-300 rounded px-3 py-2'
                   required
@@ -158,7 +173,7 @@ function AdminPage() {
                 <label className='block text-sm font-medium mb-2'>Description</label>
                 <textarea
                   name='description'
-                  value={editingProduct.description}
+                  value={editingProduct.description || ''}
                   onChange={handleInputChange}
                   className='w-full border border-gray-300 rounded px-3 py-2 h-24'
                   required
@@ -170,7 +185,7 @@ function AdminPage() {
                 <label className='block text-sm font-medium mb-2'>Category</label>
                 <select
                   name='category'
-                  value={editingProduct.category}
+                  value={editingProduct.category || 'Men'}
                   onChange={handleInputChange}
                   className='w-full border border-gray-300 rounded px-3 py-2'
                 >
@@ -185,7 +200,7 @@ function AdminPage() {
                 <label className='block text-sm font-medium mb-2'>SubCategory</label>
                 <select
                   name='subCategory'
-                  value={editingProduct.subCategory}
+                  value={editingProduct.subCategory || 'Topwear'}
                   onChange={handleInputChange}
                   className='w-full border border-gray-300 rounded px-3 py-2'
                 >
@@ -202,7 +217,7 @@ function AdminPage() {
                   <input
                     type='checkbox'
                     name='bestseller'
-                    checked={editingProduct.bestseller}
+                    checked={editingProduct.bestseller || false}
                     onChange={(e) => setEditingProduct(prev => ({
                       ...prev,
                       bestseller: e.target.checked

@@ -8,13 +8,24 @@ const server = express();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
+// IMPORTANT: Add these BEFORE other middleware
+server.use(express.json()); // Parse JSON request bodies
+server.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+
 server.use(middlewares);
 server.use(morgan("dev"));
 
-// Enable CORS
+// Enable CORS - FIXED VERSION
 server.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS"); // ADDED
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // FIXED
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  
   next();
 });
 
